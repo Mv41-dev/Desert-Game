@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cl2qtlyg4f0x1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ebum8"]
+
+[node name="Enemy" type="CharacterBody2D" unique_id=580578705]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1133188973]
+sprite_frames = SubResource("SpriteFrames_ebum8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=416744376]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1763321894]
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1549913062]

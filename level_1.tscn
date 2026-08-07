@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c1ibv3043ljdu" path="res://DesertTileMap/Desert/Tiles/Tiles.png" id="1_3hls8"]
 [ext_resource type="PackedScene" uid="uid://dmea0855e5yie" path="res://Player.tscn" id="2_hbghi"]
 [ext_resource type="PackedScene" uid="uid://tqew04d0dhc8" path="res://parallax_background.tscn" id="3_hn12h"]
+[ext_resource type="PackedScene" uid="uid://d0rdtvtk12s7i" path="res://portal.tscn" id="4_ihfcg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hbghi"]
 texture = ExtResource("1_3hls8")
@@ -304,7 +305,7 @@ texture = ExtResource("1_3hls8")
 13:2/0 = 0
 14:0/size_in_atlas = Vector2i(1, 4)
 14:0/0 = 0
-14:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+14:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10.799995, -34.799995, 9.200005, -32.399994, 10, 33.200005, -5.199997, 30.799995)
 12:4/0 = 0
 12:5/0 = 0
 12:6/0 = 0
@@ -336,6 +337,13 @@ tile_map_data = PackedByteArray("AAAAAAEAAAAFAAAAAAABAAEAAAAGAAAAAAACAAEAAAAFAAA
 tile_set = SubResource("TileSet_ebum8")
 
 [node name="Player" parent="." unique_id=267222214 instance=ExtResource("2_hbghi")]
+z_index = 3
 position = Vector2(129, 243)
 
 [node name="ParallaxBackground" parent="." unique_id=999482517 instance=ExtResource("3_hn12h")]
+
+[node name="portal" parent="." unique_id=1515034350 instance=ExtResource("4_ihfcg")]
+position = Vector2(594, 239.00003)
+rotation = -0.046670202
+scale = Vector2(0.8204087, 0.7576962)
+next_scene_path = "uid://cb3qxy13u6pq4"
