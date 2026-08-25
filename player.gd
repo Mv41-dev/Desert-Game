@@ -24,14 +24,14 @@ func _physics_process(delta):
 	var direction = Input.get_axis("left", "right")
 	
 	
-	if direction: # Se o jogador apertar algum botão de andar
-		velocity.x = direction * SPEED 
-		anim.play("run") 
-		anim.flip_h = (direction < 0) # Vira a imagem
 	if Input.is_action_just_pressed("ataque"):
-		anim.play("attack") 
+		anim.play("attack")
+	elif direction: # Se o jogador apertar algum botão de andar
+		velocity.x = direction * SPEED
+		anim.play("run")
+		anim.flip_h = (direction < 0) # Vira a imagem
 	else: # Se soltou os botões
-		velocity.x = move_toward(velocity.x, 0, SPEED) 
-		anim.play("idle") 
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		anim.play("idle")
 
 	move_and_slide()

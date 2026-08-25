@@ -12,7 +12,7 @@
 [node name="ParallaxBackground" type="ParallaxBackground" unique_id=999482517]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="." unique_id=1695175311]
-motion_scale = Vector2(0.8, 0.8)
+motion_scale = Vector2(0, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer" unique_id=1021371709]
 position = Vector2(277.00006, 178.5)

@@ -90,9 +90,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_d6rpx")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"attack",
-"speed": 2.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -147,7 +147,8 @@ scale = Vector2(0.5208333, 0.7708334)
 sprite_frames = SubResource("SpriteFrames_ebum8")
 animation = &"attack"
 autoplay = "idle"
-frame = 4
+frame = 5
+frame_progress = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2096591750]
 zoom = Vector2(2.5, 2.5)
