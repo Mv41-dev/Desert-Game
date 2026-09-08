@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dmea0855e5yie" path="res://Player.tscn" id="2_nmjpi"]
 [ext_resource type="PackedScene" uid="uid://tqew04d0dhc8" path="res://parallax_background.tscn" id="3_xdadj"]
 [ext_resource type="PackedScene" uid="uid://d0rdtvtk12s7i" path="res://portal.tscn" id="4_1y8me"]
+[ext_resource type="PackedScene" uid="uid://cl2qtlyg4f0x1" path="res://enemy.tscn" id="5_n7ypv"]
+[ext_resource type="PackedScene" uid="uid://bmbfgr7lg7awu" path="res://hud.tscn" id="6_0s5r2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nmjpi"]
 texture = ExtResource("1_jg0dc")
@@ -335,3 +337,8 @@ transform = Transform2D(2, 0, 0, 2, 0, 0)
 [node name="portal" parent="." unique_id=1515034350 instance=ExtResource("4_1y8me")]
 position = Vector2(1260, 298)
 next_scene_path = "uid://c6fmp4rc2cnq4"
+
+[node name="Inimigo" parent="." unique_id=580578705 groups=["player"] instance=ExtResource("5_n7ypv")]
+position = Vector2(1133, 318)
+
+[node name="HUD" parent="." unique_id=2146717184 instance=ExtResource("6_0s5r2")]

@@ -1,20 +1,10 @@
 extends CharacterBody2D
 
-# Sinais para avisar o HUD e o jogo quando a vida mudar ou o jogador morrer
-signal vida_alterada(nova_vida: int)
-signal jogador_morreu
-
 const SPEED = 200.0 # Velocidade de movimento lateral
 const JUMP_FORCE = -280.0 # Força do pulo
 var gravity = 980.0 # Força da gravidade
 
-@export var vida_maxima: int = 3
-var vida_atual: int = 3
-
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
-
-func _ready() -> void:
-	vida_atual = vida_maxima
 
 func _physics_process(delta: float) -> void:
 	# 1. Aplicar Gravidade
@@ -36,30 +26,16 @@ func _physics_process(delta: float) -> void:
 		anim.flip_h = (direction < 0)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		if anim.animation != "attack": # Evita interromper o ataque com a animação idle
+		if anim.animation != "attack":
 			anim.play("idle")
 
 	move_and_slide()
 
-# Função para aplicar dano ao jogador
-func tomar_dano(quantidade: int) -> void:
-	vida_atual -= quantidade
-	vida_atual = clamp(vida_atual, 0, vida_maxima)
-	
-	# Emitimos o sinal com a nova quantidade de vida para atualizar o HUD
-	vida_alterada.emit(vida_atual)
-	
-	if vida_atual <= 0:
-		morrer()
+# Função chamada quando o jogador sofre dano
+func levar_dano(quantidade: int) -> void:
+	Global.tomar_dano(quantidade)
 
-# Função para curar o jogador
-func curar(quantidade: int) -> void:
-	vida_atual += quantidade
-	vida_atual = clamp(vida_atual, 0, vida_maxima)
-	
-	vida_alterada.emit(vida_atual)
-
-func morrer() -> void:
-	jogador_morreu.emit()
-	# Aqui você pode tocar uma animação de morte ou recarregar a cena
-	queue_free()
+# Exemplo: Sinal enviado por uma Area2D (Hurtbox) no Player ao colidir com inimigos/espinhos
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("inimigos"):
+		levar_dano(1)
