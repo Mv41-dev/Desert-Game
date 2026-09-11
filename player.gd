@@ -34,8 +34,17 @@ func _physics_process(delta: float) -> void:
 # Função chamada quando o jogador sofre dano
 func levar_dano(quantidade: int) -> void:
 	Global.tomar_dano(quantidade)
+	
+	# Adicione no final do script do Player.gd
 
-# Exemplo: Sinal enviado por uma Area2D (Hurtbox) no Player ao colidir com inimigos/espinhos
-func _on_hurtbox_area_entered(area: Area2D) -> void:
-	if area.is_in_group("inimigos"):
-		levar_dano(1)
+func take_damage():
+	Global.vida_atual -= 1
+	if Global.vida_atual <= 0:
+			die()              # ...chama a função de morte
+
+func die():
+	print("Game Over - O jogador morreu!")
+	Global.health = 3
+	Global.coins = 0
+
+	get_tree().reload_current_scene()

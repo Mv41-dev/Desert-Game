@@ -339,6 +339,6 @@ position = Vector2(1260, 298)
 next_scene_path = "uid://c6fmp4rc2cnq4"
 
 [node name="Inimigo" parent="." unique_id=580578705 groups=["player"] instance=ExtResource("5_n7ypv")]
-position = Vector2(1133, 318)
+position = Vector2(1078, 317)
 
 [node name="HUD" parent="." unique_id=2146717184 instance=ExtResource("6_0s5r2")]

@@ -1,33 +1,8 @@
 [gd_scene format=3 uid="uid://cl2qtlyg4f0x1"]
 
 [ext_resource type="Script" uid="uid://cr3yl51t2aiej" path="res://enemy.gd" id="1_iifgy"]
-[ext_resource type="Texture2D" uid="uid://caq8vx4veqixm" path="res://Player e inimigo/1 Snake/Snake_attack.png" id="1_qi2p4"]
 [ext_resource type="Texture2D" uid="uid://bt15x4njrnlrx" path="res://Player e inimigo/1 Snake/Snake_idle.png" id="2_iifgy"]
 [ext_resource type="Texture2D" uid="uid://bjyqivkto0kol" path="res://Player e inimigo/1 Snake/Snake_walk.png" id="3_epg4t"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3yqyl"]
-atlas = ExtResource("1_qi2p4")
-region = Rect2(0, 24, 48, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wujgv"]
-atlas = ExtResource("1_qi2p4")
-region = Rect2(48, 24, 48, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hb8ge"]
-atlas = ExtResource("1_qi2p4")
-region = Rect2(96, 24, 48, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e1ltt"]
-atlas = ExtResource("1_qi2p4")
-region = Rect2(144, 24, 48, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dxifv"]
-atlas = ExtResource("1_qi2p4")
-region = Rect2(192, 24, 48, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pwjut"]
-atlas = ExtResource("1_qi2p4")
-region = Rect2(240, 24, 48, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n0g06"]
 atlas = ExtResource("2_iifgy")
@@ -63,29 +38,6 @@ region = Rect2(144, 24, 48, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ebum8"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3yqyl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wujgv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hb8ge")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e1ltt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dxifv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pwjut")
-}],
-"loop": 1,
-"name": &"attack",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_n0g06")
@@ -125,10 +77,7 @@ animations = [{
 size = Vector2(28, 14.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xvf33"]
-radius = 85.49269
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ebum8"]
-radius = 12.165525
+radius = 182.00275
 
 [node name="Inimigo" type="CharacterBody2D" unique_id=580578705 groups=["inimigos"]]
 script = ExtResource("1_iifgy")
@@ -143,23 +92,12 @@ autoplay = "idle"
 position = Vector2(9, 4.75)
 shape = SubResource("RectangleShape2D_e80uo")
 
-[node name="JumpTimer" type="Timer" parent="." unique_id=795938273]
-autostart = true
-
 [node name="DetectionArea" type="Area2D" parent="." unique_id=1667680082 groups=["inimigos"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=65164899]
 shape = SubResource("CircleShape2D_xvf33")
 debug_color = Color(0.93068624, 2.9937328e-05, 0.6577907, 0.41960785)
 
-[node name="AttackArea" type="Area2D" parent="." unique_id=1436194101 groups=["inimigos"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=179170362]
-position = Vector2(-12, 3)
-shape = SubResource("CircleShape2D_ebum8")
-debug_color = Color(0.31240192, 0.6266176, 0, 0.41960785)
-
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
-[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
