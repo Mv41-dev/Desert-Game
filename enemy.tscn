@@ -80,8 +80,8 @@ size = Vector2(28, 14.5)
 radius = 182.00275
 
 [node name="Inimigo" type="CharacterBody2D" unique_id=580578705 groups=["inimigos"]]
+collision_layer = 2
 script = ExtResource("1_iifgy")
-jump_force = -280.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1133188973]
 sprite_frames = SubResource("SpriteFrames_ebum8")

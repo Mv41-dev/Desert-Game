@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://tqew04d0dhc8" path="res://parallax_background.tscn" id="3_hn12h"]
 [ext_resource type="PackedScene" uid="uid://d0rdtvtk12s7i" path="res://portal.tscn" id="4_ihfcg"]
 [ext_resource type="PackedScene" uid="uid://bmbfgr7lg7awu" path="res://hud.tscn" id="5_rka8t"]
+[ext_resource type="PackedScene" uid="uid://xho0lvay4v23" path="res://background_sound.tscn" id="6_5hph3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hbghi"]
 texture = ExtResource("1_3hls8")
@@ -350,3 +351,5 @@ scale = Vector2(0.8204087, 0.7576962)
 next_scene_path = "uid://cb3qxy13u6pq4"
 
 [node name="HUD" parent="." unique_id=2146717184 instance=ExtResource("5_rka8t")]
+
+[node name="BackgroundSound" parent="." unique_id=327631616 instance=ExtResource("6_5hph3")]

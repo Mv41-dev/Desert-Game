@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dv6824wc21qrr" path="res://player.gd" id="1_kpjcp"]
 [ext_resource type="Texture2D" uid="uid://8ct4dhx83uid" path="res://Mummy_ataque (1).png" id="2_e80uo"]
-[ext_resource type="Texture2D" uid="uid://ckarrwscssvhe" path="res://Player e inimigo/2 Hyena/Mummy_walk.png" id="3_e80uo"]
+[ext_resource type="Texture2D" uid="uid://c1rekanhojk8n" path="res://Player e inimigo/5 Mummy/Mummy_idle.png" id="3_e80uo"]
 [ext_resource type="Texture2D" uid="uid://cfsad2ka2vgp2" path="res://Mummy_run.png" id="4_cxr5p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wi0c6"]
@@ -44,14 +44,6 @@ region = Rect2(96, 0, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ncpa"]
 atlas = ExtResource("3_e80uo")
 region = Rect2(144, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0pi4m"]
-atlas = ExtResource("3_e80uo")
-region = Rect2(192, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sg6sq"]
-atlas = ExtResource("3_e80uo")
-region = Rect2(240, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r3kul"]
 atlas = ExtResource("4_cxr5p")
@@ -114,12 +106,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5ncpa")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0pi4m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sg6sq")
 }],
 "loop": 1,
 "name": &"idle",
@@ -152,16 +138,21 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ebum8"]
 size = Vector2(6, 25)
 
-[node name="Player" type="CharacterBody2D" unique_id=267222214 groups=["player"]]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxr5p"]
+size = Vector2(12.5, 25.5)
+
+[node name="Player" type="CharacterBody2D" unique_id=267222214]
+collision_mask = 3
 script = ExtResource("1_kpjcp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=742486789]
 position = Vector2(13.5, 10.000002)
 scale = Vector2(0.4791667, 0.75000006)
 sprite_frames = SubResource("SpriteFrames_ebum8")
-animation = &"idle"
+animation = &"attack"
 autoplay = "idle"
-frame_progress = 0.60556614
+frame = 5
+frame_progress = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2096591750]
 zoom = Vector2(2.5, 2.5)
@@ -169,3 +160,12 @@ zoom = Vector2(2.5, 2.5)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1561818429]
 position = Vector2(9, 15.5)
 shape = SubResource("RectangleShape2D_ebum8")
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=908972672]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=407768407]
+position = Vector2(10, 15)
+shape = SubResource("RectangleShape2D_cxr5p")
+debug_color = Color(0.5489221, 0.4029309, 1, 0.41960785)

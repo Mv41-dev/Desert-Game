@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://xho0lvay4v23"]
+
+[ext_resource type="AudioStream" uid="uid://drsaxbdkj7uv6" path="res://Warriyo - Dunes [NCS Release].mp3" id="1_yi1g3"]
+
+[node name="BackgroundSound" type="AudioStreamPlayer2D" unique_id=327631616]
+stream = ExtResource("1_yi1g3")
+autoplay = true
