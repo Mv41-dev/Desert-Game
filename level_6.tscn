@@ -345,7 +345,7 @@ position = Vector2(667, 333)
 position = Vector2(2692.9998, 265.00003)
 rotation = -0.046670202
 scale = Vector2(0.8204087, 0.7576962)
-next_scene_path = "uid://cb3qxy13u6pq4"
+next_scene_path = "uid://cwovxivheecvf"
 
 [node name="ParallaxBackground" parent="." unique_id=503224253 instance=ExtResource("4_ixf42")]
 
